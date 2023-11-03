@@ -1,0 +1,231 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  html {
+    @apply overflow-x-hidden select-none;
+    box-sizing: border-box;
+  }
+  body {
+    @apply bg-white font-barlow text-black;
+    font-size: 16px;
+    line-height: 1.6;
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
+  }
+}
+
+@layer components {
+  .page-container {
+    max-width: 1290px;
+    @apply mx-auto;
+    @media (max-width: 1024px) {
+      padding: 0 15px;
+    }
+  }
+  .slogan,
+  .CTA,
+  .target {
+    background: linear-gradient(91.94deg, #112072 0%, #2961f5 89.21%);
+  }
+  .benefit-item {
+    background: linear-gradient(180deg, #112072 -17.22%, #2961f5 100%);
+  }
+  .slide {
+    &-item {
+      @apply flex items-start;
+      gap: 30px;
+    }
+    &-content {
+      line-height: 1;
+      .top {
+        margin-bottom: 20px;
+        padding-top: 140px;
+        span {
+          font-weight: 500;
+          font-size: 20px;
+          margin-bottom: 10px;
+          display: inline-block;
+        }
+        h4 {
+          font-weight: 700;
+          font-size: 20px;
+          margin-bottom: 10px;
+          span {
+            font-weight: 700;
+            font-size: 36px;
+            @apply text-primary uppercase;
+          }
+        }
+      }
+      .bottom {
+        .block {
+          @apply flex;
+          gap: 25px;
+          margin-bottom: 25px;
+          img {
+            width: 44px;
+            height: 44px;
+          }
+          h5 {
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 15px;
+          }
+          p {
+            font-weight: 500;
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+    @media (max-width: 768px) {
+      &-item {
+        flex-direction: column;
+        gap: 20px;
+      }
+      &-content {
+        line-height: 1.6;
+        .top {
+          padding-top: unset;
+          span {
+            font-size: 16px;
+            margin-bottom: 0 !important;
+          }
+          h4 {
+            font-size: 14px;
+            line-height: 1;
+            margin-bottom: 5px;
+            span {
+              font-size: 20px;
+            }
+          }
+        }
+        .bottom {
+          .block {
+            gap: 15px;
+            margin-bottom: 10px;
+            img {
+              width: 30px;
+              height: 30px;
+            }
+            h5 {
+              font-size: 16px;
+              margin-bottom: 6px;
+            }
+            p {
+              line-height: 1.8;
+              margin-bottom: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .form-register {
+    background: linear-gradient(180deg, #df4b57 0%, #b43c6b 100%);
+  }
+}
+
+.slick-slide > div {
+  margin: 0 10px;
+  @media (max-width: 768px) {
+  }
+}
+.slick-prev:before,
+.slick-next:before {
+  color: #112072 !important;
+}
+
+.checkbox {
+  position: absolute;
+  display: block;
+  height: 32px;
+  width: 32px;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.hamburger-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  height: 26px;
+  width: 32px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger-lines .line {
+  display: block;
+  height: 4px;
+  width: 100%;
+  border-radius: 10px;
+  background: white;
+}
+
+.hamburger-lines .line1 {
+  transform-origin: 0% 0%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.hamburger-lines .line2 {
+  transition: transform 0.2s ease-in-out;
+}
+
+.hamburger-lines .line3 {
+  transform-origin: 0% 100%;
+  transition: transform 0.4s ease-in-out;
+}
+
+input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+  transform: rotate(45deg);
+}
+
+input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+  transform: scaleY(0);
+}
+
+input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+  transform: rotate(-45deg);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .slick-arrow.slick-prev {
+    left: -10px !important;
+  }
+  .slick-arrow.slick-next {
+    right: -10px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .video {
+    width: 100%;
+  }
+  .slick-arrow.slick-next {
+    right: 10px !important;
+  }
+}
